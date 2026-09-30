@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Campus - 친환경 캠퍼스</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; color: #183b2b; background: #f4fbf6; line-height: 1.6; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#fff; }
+    .logo { font-size:22px; font-weight:800; color:#1f8f55; }
+    nav a { color:#365344; text-decoration:none; margin-left:24px; }
+    .hero { padding:90px 8%; display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; }
+    .hero h1 { font-size:clamp(42px,6vw,72px); line-height:1.08; margin-bottom:22px; }
+    .hero h1 span { color:#25a866; }
+    .hero p { color:#5d7567; font-size:18px; max-width:560px; margin-bottom:30px; }
+    .btn { display:inline-block; padding:14px 22px; border-radius:12px; background:#25a866; color:#fff; text-decoration:none; font-weight:700; }
+    .card { background:#fff; border-radius:24px; padding:30px; box-shadow:0 15px 40px rgba(31,90,57,.10); }
+    .points { text-align:center; }
+    .points .num { font-size:58px; font-weight:800; color:#25a866; }
+    .bar { height:12px; background:#e3f2e8; border-radius:20px; overflow:hidden; margin:20px 0; }
+    .bar div { width:72%; height:100%; background:#25a866; }
+    section { padding:70px 8%; }
+    .title { text-align:center; margin-bottom:40px; }
+    .title h2 { font-size:36px; margin-bottom:8px; }
+    .title p { color:#6b7e73; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .activity { padding:28px; background:#fff; border-radius:20px; }
+    .icon { font-size:34px; margin-bottom:12px; }
+    .activity h3 { margin-bottom:8px; }
+    .activity p { color:#6b7e73; }
+    .reward { display:flex; justify-content:space-between; align-items:center; padding:22px 0; border-bottom:1px solid #e7eee9; }
+    .reward:last-child { border-bottom:0; }
+    .reward strong { color:#25a866; }
+    footer { text-align:center; padding:35px; background:#173c2a; color:#dceee3; }
+    @media(max-width:800px) { .hero { grid-template-columns:1fr; padding-top:55px; } .grid { grid-template-columns:1fr; } nav a { display:none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">🌱 ECO CAMPUS</div>
+    <div><a href="#service">서비스</a><a href="#activity">활동</a><a href="#reward">보상</a></div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p>대학생을 위한 친환경 리워드 플랫폼</p>
+        <h1>작은 실천이<br><span>캠퍼스를 바꿉니다.</span></h1>
+        <p>친환경 활동을 기록하고 포인트를 받아보세요. 학교·학과 경쟁부터 카페와 헬스장 할인까지, 일상 속 환경보호를 재미있게 만들어드립니다.</p>
+        <a class="btn" href="#activity">친환경 활동 시작하기</a>
+      </div>
+      <div class="card points">
+        <p>나의 ECO POINT</p>
+        <div class="num">2,480 P</div>
+        <div class="bar"><div></div></div>
+        <p>이번 달 목표까지 520P 남았어요!</p>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="title"><h2>하나의 서비스로 연결되는 친환경 생활</h2><p>활동 · 포인트 · 보상 · 데이터를 한눈에 확인하세요.</p></div>
+      <div class="grid">
+        <div class="activity"><div class="icon">♻️</div><h3>친환경 활동</h3><p>텀블러 사용, 대중교통 이용, 분리배출 등 다양한 활동을 기록하세요.</p></div>
+        <div class="activity"><div class="icon">🏆</div><h3>캠퍼스 경쟁</h3><p>학교와 학과별 포인트를 비교하며 함께 친환경 목표를 달성하세요.</p></div>
+        <div class="activity"><div class="icon">🎁</div><h3>실속 있는 보상</h3><p>적립한 포인트를 제휴 매장 할인과 다양한 혜택으로 사용하세요.</p></div>
+      </div>
+    </section>
+
+    <section id="activity">
+      <div class="title"><h2>오늘의 친환경 활동</h2><p>작은 행동 하나도 포인트가 됩니다.</p></div>
+      <div class="grid">
+        <div class="activity"><div class="icon">🥤</div><h3>텀블러 사용</h3><p>카페에서 다회용 컵을 사용했어요.</p><br><strong>+100 P</strong></div>
+        <div class="activity"><div class="icon">🚌</div><h3>대중교통 이용</h3><p>학교까지 대중교통으로 이동했어요.</p><br><strong>+80 P</strong></div>
+        <div class="activity"><div class="icon">🚲</div><h3>자전거 이용</h3><p>가까운 거리는 자전거로 이동했어요.</p><br><strong>+120 P</strong></div>
+      </div>
+    </section>
+
+    <section id="reward">
+      <div class="title"><h2>포인트로 받을 수 있는 혜택</h2><p>학교 주변에서 바로 사용할 수 있어요.</p></div>
+      <div class="card">
+        <div class="reward"><span>☕ 제휴 카페 10% 할인</span><strong>500 P</strong></div>
+        <div class="reward"><span>🏋️ 헬스장 1일 이용권 할인</span><strong>1,000 P</strong></div>
+        <div class="reward"><span>🎓 캠퍼스 이벤트 참여권</span><strong>300 P</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>🌱 ECO CAMPUS · 함께 만드는 지속가능한 캠퍼스</footer>
+</body>
+</html>
