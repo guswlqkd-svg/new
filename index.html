@@ -1,139 +1,23 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="대학생의 친환경 활동을 포인트와 리워드로 연결하는 Green Campus 프로젝트">
-  <title>GREEN CAMPUS — 친환경 활동 리워드 플랫폼</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="cursor-glow"></div>
-  <canvas id="particles"></canvas>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="대학생의 친환경 활동을 포인트와 리워드로 연결하는 Green Campus"><title>Green Campus — Act. Earn. Change.</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="noise"></div><div class="cursor-glow"></div><canvas id="particles"></canvas>
+<header><nav class="nav container"><a class="brand" href="#home"><span class="brand-mark">G</span><span>GREEN<br><b>CAMPUS</b></span></a><div class="nav-links"><a href="#service">서비스</a><a href="#activity">활동</a><a href="#ranking">랭킹</a><a href="#reward">리워드</a><a href="#data">데이터</a></div><a class="nav-cta" href="#mypage">MY CAMPUS ↗</a><button class="menu-btn">☰</button></nav></header>
+<main>
+<section id="home" class="hero"><div class="container hero-grid"><div class="hero-copy reveal"><div class="badge"><i></i> CAMPUS ECO PLATFORM · 2026</div><h1>친환경을 하면<br><em>캠퍼스가 바뀐다.</em></h1><p>대학생의 작은 친환경 활동을 <b>포인트·랭킹·할인</b>으로 연결합니다.<br>오늘 한 번의 실천이 우리 학교의 변화를 만듭니다.</p><div class="hero-btns"><a class="btn green" href="#activity">🌱 활동 시작하기 <span>→</span></a><a class="text-btn" href="#service">서비스 알아보기 ↓</a></div><div class="trust"><span><b>12,480+</b> 누적 활동</span><span><b>8.7t</b> CO₂ 절감</span><span><b>24</b> 참여 학과</span></div></div>
+<div class="app-wrap reveal"><div class="glow"></div><div class="app-card"><div class="app-top"><span>GREEN CAMPUS</span><span class="live"><i></i> LIVE</span></div><div class="hello"><span>MON, OCT 07</span><b>안녕하세요, 지현님 👋</b></div><div class="point-card"><div><small>MY ECO POINT</small><strong data-count="12480">0</strong><span>+1,250P 이번 주 ↗</span></div><div class="leaf">🌱</div></div><div class="today"><div><small>TODAY'S ECO GOAL</small><b>3 / 5 완료</b></div><div class="progress"><i></i></div><div class="mini-actions"><span>♻️ 분리배출</span><span>☕ 다회용컵</span><span>🚌 대중교통</span></div></div><div class="rank-row"><span>🏆 우리 학과 순위</span><b>#03 <small>/ 24</small></b></div></div><div class="float f1">+500 P</div><div class="float f2">🏆 CAMPUS #1</div><div class="float f3">CO₂ -12.4kg</div></div></div><div class="scroll">SCROLL <span></span> EXPLORE</div></section>
 
-  <header class="nav-wrap">
-    <nav class="nav container">
-      <a href="#home" class="logo"><span>GREEN</span> CAMPUS</a>
-      <button class="menu-btn" aria-label="메뉴 열기"><span></span><span></span></button>
-      <div class="nav-links">
-        <a href="#service">SERVICE</a>
-        <a href="#how">HOW IT WORKS</a>
-        <a href="#benefits">BENEFITS</a>
-        <a href="#dashboard">DATA</a>
-      </div>
-    </nav>
-  </header>
+<section id="service" class="section"><div class="container"><div class="section-top reveal"><div><small>01 / SERVICE</small><h2>실천을 <em>보상</em>으로,<br>보상을 다시 <em>실천</em>으로.</h2></div><p>Green Campus는 친환경 행동을 기록하고<br>포인트와 실제 혜택으로 돌려주는 캠퍼스 플랫폼입니다.</p></div><div class="service-grid"><article class="service-card reveal"><span>01</span><div class="service-icon">🌱</div><h3>Eco Activity</h3><p>일상 속 친환경 행동을 선택하고 간편하게 인증하세요.</p><div class="line"></div><b>활동 인증 →</b></article><article class="service-card featured reveal"><span>02</span><div class="service-icon">✦</div><h3>Point & Reward</h3><p>활동할수록 포인트가 쌓이고 캠퍼스 제휴 매장에서 바로 사용할 수 있습니다.</p><div class="line"></div><b>포인트 확인 →</b></article><article class="service-card reveal"><span>03</span><div class="service-icon">🏆</div><h3>Campus Challenge</h3><p>학교와 학과별 실천량을 비교하고 친구들과 함께 목표에 도전하세요.</p><div class="line"></div><b>랭킹 보기 →</b></article></div></div></section>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-grid container">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="dot"></span> ECO ACTION · CAMPUS REWARD PLATFORM</p>
-          <p class="kicker">대학생의 작은 행동이 캠퍼스를 바꿉니다</p>
-          <h1>친환경을<br><em>재미있는 보상</em>으로.</h1>
-          <p class="hero-desc">일회용품 줄이기, 대중교통 이용, 분리배출 같은 <strong>친환경 활동</strong>을 기록하고 포인트로 보상받아 보세요.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#service">서비스 알아보기 <span>↗</span></a>
-            <a class="btn ghost" href="#how">이용 방법</a>
-          </div>
-          <div class="mini-stats">
-            <div><strong>01</strong><span>친환경 활동<br>포인트 적립</span></div>
-            <div><strong>02</strong><span>학교·학과<br>캠퍼스 경쟁</span></div>
-            <div><strong>03</strong><span>카페·헬스장<br>할인 리워드</span></div>
-          </div>
-        </div>
+<section id="activity" class="section dark"><div class="container"><div class="section-title reveal"><small>02 / ECO ACTIVITY</small><h2>오늘, 어떤 <em>실천</em>을<br>시작할까요?</h2><p>활동을 완료하면 포인트가 바로 적립됩니다.</p></div><div class="activity-grid">
+<article class="activity-card reveal" data-points="500"><div class="act-icon">♻️</div><div class="act-main"><small>ACTIVITY 01</small><h3>분리배출</h3><p>재활용품을 올바르게 분리배출했어요.</p></div><strong>+500P</strong><button class="check">인증하기 <span>→</span></button></article><article class="activity-card reveal" data-points="300"><div class="act-icon">☕</div><div class="act-main"><small>ACTIVITY 02</small><h3>다회용컵</h3><p>카페에서 일회용컵 대신 다회용컵을 사용했어요.</p></div><strong>+300P</strong><button class="check">인증하기 <span>→</span></button></article><article class="activity-card reveal" data-points="400"><div class="act-icon">🚌</div><div class="act-main"><small>ACTIVITY 03</small><h3>대중교통</h3><p>버스·지하철을 이용해 이동했어요.</p></div><strong>+400P</strong><button class="check">인증하기 <span>→</span></button></article><article class="activity-card reveal" data-points="450"><div class="act-icon">🚲</div><div class="act-main"><small>ACTIVITY 04</small><h3>친환경 이동</h3><p>자전거 또는 도보로 이동했어요.</p></div><strong>+450P</strong><button class="check">인증하기 <span>→</span></button></article><article class="activity-card reveal" data-points="800"><div class="act-icon">🌳</div><div class="act-main"><small>ACTIVITY 05</small><h3>플로깅</h3><p>캠퍼스 주변 쓰레기를 주웠어요.</p></div><strong>+800P</strong><button class="check">인증하기 <span>→</span></button></article><article class="activity-card reveal" data-points="300"><div class="act-icon">💡</div><div class="act-main"><small>ACTIVITY 06</small><h3>에너지 절약</h3><p>사용하지 않는 전기와 조명을 줄였어요.</p></div><strong>+300P</strong><button class="check">인증하기 <span>→</span></button></article>
+</div></div></section>
 
-        <div class="hero-visual reveal">
-          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-          <div class="dashboard-card">
-            <div class="card-top"><span>GREEN CAMPUS / 2026</span><span>MY ECO DATA</span></div>
-            <div class="score">
-              <div class="score-ring"><div><small>MY POINT</small><strong>12,480</strong><span>+ 1,250 이번 주</span></div></div>
-            </div>
-            <div class="activity"><span>오늘의 친환경 활동</span><b>3 / 5 완료</b></div>
-            <div class="progress"><i></i></div>
-            <div class="card-list">
-              <div><span>♻ 분리배출</span><b>+500P</b></div>
-              <div><span>☕ 다회용컵 사용</span><b>+300P</b></div>
-              <div><span>🚲 친환경 이동</span><b>+450P</b></div>
-            </div>
-          </div>
-          <div class="floating-tag tag-one">+500 P</div>
-          <div class="floating-tag tag-two">ECO RANK #3</div>
-          <div class="floating-tag tag-three">🌱 12.4 kg CO₂</div>
-        </div>
-      </div>
-      <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
-    </section>
+<section id="mypage" class="section"><div class="container"><div class="section-top reveal"><div><small>03 / MY ECO</small><h2>나의 <em>친환경 기록</em>을<br>한눈에 확인하세요.</h2></div><p>꾸준한 실천은 레벨이 되고<br>나만의 Eco Profile이 됩니다.</p></div><div class="profile-grid"><div class="profile-main reveal"><div class="profile-head"><div class="avatar">G</div><div><small>ECO PLAYER · LV.12</small><h3>GREEN STARTER</h3></div><span>🔥 7 DAY STREAK</span></div><div class="level"><div><span>다음 레벨까지 <b>2,520P</b></span><b>12,480 / 15,000</b></div><div class="levelbar"><i></i></div></div><div class="stat-grid"><div><small>이번 달 활동</small><b>38</b><span>+24%</span></div><div><small>누적 포인트</small><b>12,480</b><span>P</span></div><div><small>CO₂ 절감</small><b>12.4</b><span>kg</span></div><div><small>연속 실천</small><b>7</b><span>days</span></div></div></div><div class="weekly reveal"><div class="card-head"><span>WEEKLY ACTIVITY</span><b>+28.4%</b></div><div class="bars"><div><i style="height:42%"></i><small>M</small></div><div><i style="height:58%"></i><small>T</small></div><div><i style="height:51%"></i><small>W</small></div><div><i style="height:70%"></i><small>T</small></div><div><i style="height:64%"></i><small>F</small></div><div><i style="height:82%"></i><small>S</small></div><div><i style="height:94%"></i><small>S</small></div></div></div></div></div></section>
 
-    <section id="service" class="section service">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-label">01 / MAIN SERVICE</p>
-          <h2>친환경 활동을<br><em>포인트와 혜택</em>으로 연결합니다.</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card reveal"><span class="feature-no">01</span><div class="icon">🌱</div><h3>친환경 활동 인증</h3><p>캠퍼스에서 실천한 친환경 활동을 간편하게 기록하고 인증합니다.</p><span class="feature-link">ACTIVITY →</span></article>
-          <article class="feature-card active reveal"><span class="feature-no">02</span><div class="icon">✦</div><h3>포인트 & 리워드</h3><p>활동할수록 포인트가 쌓이고 제휴 매장에서 즉시 할인 혜택으로 사용할 수 있습니다.</p><span class="feature-link">REWARD →</span></article>
-          <article class="feature-card reveal"><span class="feature-no">03</span><div class="icon">↗</div><h3>캠퍼스 경쟁</h3><p>학교와 학과별 친환경 실천 데이터를 비교하고 함께 목표를 달성합니다.</p><span class="feature-link">RANKING →</span></article>
-        </div>
-      </div>
-    </section>
+<section id="ranking" class="section dark"><div class="container"><div class="section-top reveal"><div><small>04 / CAMPUS RANKING</small><h2>우리 학교는 지금<br><em>몇 위</em>일까요?</h2></div><div class="tabs"><button class="active">학교</button><button>학과</button><button>주간</button></div></div><div class="ranking-list reveal"><div class="rank-item second"><span class="medal">🥈</span><b>02</b><div><strong>서울대학교</strong><small>12,840명 참여 · 18.2t CO₂</small></div><em>184,920P</em></div><div class="rank-item first"><span class="medal">🥇</span><b>01</b><div><strong>Green Campus University</strong><small>15,240명 참여 · 21.7t CO₂</small></div><em>248,650P</em></div><div class="rank-item third"><span class="medal">🥉</span><b>03</b><div><strong>연세대학교</strong><small>9,420명 참여 · 13.8t CO₂</small></div><em>162,440P</em></div><div class="rank-item"><span></span><b>04</b><div><strong>고려대학교</strong><small>8,910명 참여 · 12.9t CO₂</small></div><em>148,320P</em></div></div></div></section>
 
-    <section id="how" class="section how">
-      <div class="container two-col">
-        <div class="section-heading reveal"><p class="section-label">02 / HOW IT WORKS</p><h2>참여는 간단하게,<br><em>변화는 함께.</em></h2></div>
-        <div class="steps">
-          <article class="step reveal"><span>01</span><div><h3>활동하기</h3><p>분리배출, 다회용컵, 대중교통 등 일상 속 친환경 활동을 실천합니다.</p></div></article>
-          <article class="step reveal"><span>02</span><div><h3>인증하고 포인트 받기</h3><p>활동을 인증하면 포인트가 적립되고 나의 친환경 기록이 쌓입니다.</p></div></article>
-          <article class="step reveal"><span>03</span><div><h3>혜택 사용 & 경쟁하기</h3><p>포인트를 제휴 매장에서 할인받거나 학교·학과 랭킹에 참여합니다.</p></div></article>
-        </div>
-      </div>
-    </section>
+<section id="reward" class="section"><div class="container"><div class="section-top reveal"><div><small>05 / REWARD SHOP</small><h2>쌓은 포인트를<br><em>실제 혜택</em>으로.</h2></div><p>캠퍼스 주변 제휴 매장에서<br>포인트를 바로 사용할 수 있어요.</p></div><div class="reward-grid"><article class="reward-card reveal"><div class="reward-img cafe">☕</div><small>CAFE PARTNER</small><h3>아메리카노 1잔</h3><div><b>2,000P</b><button>교환하기</button></div></article><article class="reward-card reveal"><div class="reward-img gym">🏋️</div><small>FITNESS PARTNER</small><h3>헬스장 1일 이용권</h3><div><b>5,000P</b><button>교환하기</button></div></article><article class="reward-card reveal"><div class="reward-img store">🌿</div><small>ECO STORE</small><h3>친환경 키트</h3><div><b>8,000P</b><button>교환하기</button></div></article></div></div></section>
 
-    <section id="benefits" class="section benefits">
-      <div class="container">
-        <div class="work-head reveal">
-          <div><p class="section-label">03 / BENEFITS</p><h2>학생에게 돌아오는<br><em>실질적인 혜택</em></h2></div>
-          <p>환경을 위한 행동이<br>바로 나의 혜택이 됩니다.</p>
-        </div>
-        <div class="benefit-grid">
-          <div class="benefit-card reveal"><span>01</span><strong>☕</strong><h3>카페 할인</h3><p>포인트로 제휴 카페의 음료와 메뉴를 할인받을 수 있습니다.</p></div>
-          <div class="benefit-card reveal"><span>02</span><strong>🏋</strong><h3>헬스장 혜택</h3><p>운동과 친환경 실천을 함께 이어갈 수 있는 제휴 혜택을 제공합니다.</p></div>
-          <div class="benefit-card reveal"><span>03</span><strong>🏆</strong><h3>캠퍼스 랭킹</h3><p>우리 학교와 학과의 친환경 활동 순위를 확인하고 함께 도전합니다.</p></div>
-          <div class="benefit-card reveal"><span>04</span><strong>📊</strong><h3>데이터 시각화</h3><p>개인과 캠퍼스의 활동량, 포인트, 환경 기여도를 한눈에 확인합니다.</p></div>
-        </div>
-      </div>
-    </section>
+<section id="data" class="section data-section"><div class="container data-box reveal"><div class="data-copy"><small>06 / ECO DATA</small><h2>우리의 실천이<br><em>숫자로 보입니다.</em></h2><p>개인의 활동부터 캠퍼스 전체의 변화까지 데이터를 시각화해 보여줍니다.</p><div class="impact-big"><span>🌱 누적 CO₂ 절감</span><strong>8,742.6 kg</strong><small>지난달 대비 <b>+18.7%</b></small></div></div><div class="chart-panel"><div class="chart-header"><span>MONTHLY ECO INDEX</span><b>+28.4%</b></div><div class="big-bars"><i style="height:35%"><span></span></i><i style="height:48%"><span></span></i><i style="height:44%"><span></span></i><i style="height:62%"><span></span></i><i style="height:57%"><span></span></i><i style="height:70%"><span></span></i><i style="height:65%"><span></span></i><i style="height:82%"><span></span></i><i style="height:76%"><span></span></i><i style="height:88%"><span></span></i><i style="height:84%"><span></span></i><i style="height:96%"><span></span></i></div><div class="months"><span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>OCT</span></div></div></div></section>
 
-    <section id="dashboard" class="section dashboard">
-      <div class="container dashboard-box reveal">
-        <div class="dashboard-copy">
-          <p class="section-label">04 / ECO DATA</p>
-          <h2>우리의 행동이<br><em>데이터로 보입니다.</em></h2>
-          <p>개인의 활동부터 학교·학과 전체의 참여율까지 시각화하여 환경을 위한 변화가 얼마나 쌓였는지 보여줍니다.</p>
-          <a class="btn primary" href="#contact">프로젝트 참여하기 <span>↗</span></a>
-        </div>
-        <div class="chart">
-          <div class="chart-head"><span>이번 달 캠퍼스 실천 지수</span><b>+28.4%</b></div>
-          <div class="bars"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:82%"></i><i style="--h:94%"></i></div>
-          <div class="days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
-          <div class="impact"><span>🌱 누적 CO₂ 절감</span><strong>1,248 kg</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="marquee"><div>ACT • EARN • COMPETE • REWARD • ACT • EARN • COMPETE • REWARD •</div></section>
-
-    <section id="contact" class="section contact">
-      <div class="container contact-box reveal">
-        <div><p class="section-label">05 / JOIN THE MOVEMENT</p><h2>작은 실천을<br><em>함께 시작해요.</em></h2><p class="contact-copy">Green Campus는 대학생의 일상 속 친환경 행동을 더 쉽고 재미있게 만드는 프로젝트입니다.</p></div>
-        <div class="contact-right"><div class="join-card"><span>GREEN CAMPUS</span><strong>오늘부터<br>나도 ECO PLAYER</strong><a href="#home">START NOW ↗</a></div></div>
-      </div>
-    </section>
-  </main>
-
-  <footer><div class="container"><span>© 2026 GREEN CAMPUS</span><span>ACT · EARN · COMPETE · REWARD</span></div></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<section class="cta"><div class="container cta-inner reveal"><div><small>GREEN CAMPUS PROJECT</small><h2>오늘의 작은 행동이<br><em>내일의 캠퍼스</em>가 됩니다.</h2></div><a class="btn green" href="#activity">지금 참여하기 →</a></div></section>
+</main><footer><div class="container"><div class="brand"><span class="brand-mark">G</span><span>GREEN<br><b>CAMPUS</b></span></div><span>ACT · EARN · COMPETE · REWARD</span><span>© 2026 GREEN CAMPUS</span></div></footer><script src="script.js"></script></body></html>
