@@ -1,91 +1,154 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eco Campus - 친환경 캠퍼스</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; color: #183b2b; background: #f4fbf6; line-height: 1.6; }
-    nav { display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:#fff; }
-    .logo { font-size:22px; font-weight:800; color:#1f8f55; }
-    nav a { color:#365344; text-decoration:none; margin-left:24px; }
-    .hero { padding:90px 8%; display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; }
-    .hero h1 { font-size:clamp(42px,6vw,72px); line-height:1.08; margin-bottom:22px; }
-    .hero h1 span { color:#25a866; }
-    .hero p { color:#5d7567; font-size:18px; max-width:560px; margin-bottom:30px; }
-    .btn { display:inline-block; padding:14px 22px; border-radius:12px; background:#25a866; color:#fff; text-decoration:none; font-weight:700; }
-    .card { background:#fff; border-radius:24px; padding:30px; box-shadow:0 15px 40px rgba(31,90,57,.10); }
-    .points { text-align:center; }
-    .points .num { font-size:58px; font-weight:800; color:#25a866; }
-    .bar { height:12px; background:#e3f2e8; border-radius:20px; overflow:hidden; margin:20px 0; }
-    .bar div { width:72%; height:100%; background:#25a866; }
-    section { padding:70px 8%; }
-    .title { text-align:center; margin-bottom:40px; }
-    .title h2 { font-size:36px; margin-bottom:8px; }
-    .title p { color:#6b7e73; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-    .activity { padding:28px; background:#fff; border-radius:20px; }
-    .icon { font-size:34px; margin-bottom:12px; }
-    .activity h3 { margin-bottom:8px; }
-    .activity p { color:#6b7e73; }
-    .reward { display:flex; justify-content:space-between; align-items:center; padding:22px 0; border-bottom:1px solid #e7eee9; }
-    .reward:last-child { border-bottom:0; }
-    .reward strong { color:#25a866; }
-    footer { text-align:center; padding:35px; background:#173c2a; color:#dceee3; }
-    @media(max-width:800px) { .hero { grid-template-columns:1fr; padding-top:55px; } .grid { grid-template-columns:1fr; } nav a { display:none; } }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="김도현의 개인 프로필 및 포트폴리오 사이트" />
+  <title>DOHYUN — Creative Developer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <div class="logo">🌱 ECO CAMPUS</div>
-    <div><a href="#service">서비스</a><a href="#activity">활동</a><a href="#reward">보상</a></div>
-  </nav>
+  <div class="cursor-glow"></div>
+  <canvas id="particles"></canvas>
+
+  <header class="nav-wrap">
+    <nav class="nav container">
+      <a href="#home" class="logo">DH<span>.</span></a>
+      <button class="menu-btn" aria-label="메뉴 열기"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#career">CAREER</a>
+        <a href="#work">WORK</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
-    <section class="hero">
-      <div>
-        <p>대학생을 위한 친환경 리워드 플랫폼</p>
-        <h1>작은 실천이<br><span>캠퍼스를 바꿉니다.</span></h1>
-        <p>친환경 활동을 기록하고 포인트를 받아보세요. 학교·학과 경쟁부터 카페와 헬스장 할인까지, 일상 속 환경보호를 재미있게 만들어드립니다.</p>
-        <a class="btn" href="#activity">친환경 활동 시작하기</a>
+    <section id="home" class="hero">
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="dot"></span> AVAILABLE FOR NEW PROJECTS</p>
+          <p class="kicker">HELLO, I'M DOHYUN</p>
+          <h1>Digital ideas<br /><em>into reality.</em></h1>
+          <p class="hero-desc">
+            사용자 경험과 기술을 연결해 기억에 남는 웹 경험을 만드는
+            <strong><span id="typing"></span></strong>입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#work">작업 보기 <span>↗</span></a>
+            <a class="btn ghost" href="#contact">연락하기</a>
+          </div>
+          <div class="mini-stats">
+            <div><strong>04+</strong><span>Years<br />Experience</span></div>
+            <div><strong>28</strong><span>Projects<br />Completed</span></div>
+            <div><strong>12</strong><span>Happy<br />Clients</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="portrait-card">
+            <div class="portrait-top"><span>PROFILE / 2026</span><span>01—04</span></div>
+            <div class="portrait">
+              <div class="avatar">DH</div>
+              <div class="scan"></div>
+            </div>
+            <div class="portrait-bottom">
+              <div><small>ROLE</small><strong>Creative Developer</strong></div>
+              <div><small>BASED IN</small><strong>SEOUL, KR</strong></div>
+            </div>
+          </div>
+          <div class="floating-tag tag-one">UI / UX</div>
+          <div class="floating-tag tag-two">FRONTEND</div>
+          <div class="floating-tag tag-three">CREATIVE CODE</div>
+        </div>
       </div>
-      <div class="card points">
-        <p>나의 ECO POINT</p>
-        <div class="num">2,480 P</div>
-        <div class="bar"><div></div></div>
-        <p>이번 달 목표까지 520P 남았어요!</p>
+      <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container two-col">
+        <div class="section-heading reveal">
+          <p class="section-label">01 / ABOUT</p>
+          <h2>사람이 쓰기 좋은<br /><em>디지털 경험</em>을 만듭니다.</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p class="lead">저는 디자인의 감각과 프론트엔드의 논리를 함께 사용해 브랜드와 서비스가 가진 이야기를 화면 위에 구현합니다.</p>
+          <p>새로운 기술을 빠르게 실험하고, 복잡한 문제를 단순한 인터랙션으로 풀어내는 것을 좋아합니다. 기획부터 디자인, 개발, 배포까지 제품의 전체 흐름을 바라보며 작업합니다.</p>
+          <div class="skills">
+            <span>HTML / CSS</span><span>JavaScript</span><span>React</span>
+            <span>Figma</span><span>GSAP</span><span>Git / GitHub</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="service">
-      <div class="title"><h2>하나의 서비스로 연결되는 친환경 생활</h2><p>활동 · 포인트 · 보상 · 데이터를 한눈에 확인하세요.</p></div>
-      <div class="grid">
-        <div class="activity"><div class="icon">♻️</div><h3>친환경 활동</h3><p>텀블러 사용, 대중교통 이용, 분리배출 등 다양한 활동을 기록하세요.</p></div>
-        <div class="activity"><div class="icon">🏆</div><h3>캠퍼스 경쟁</h3><p>학교와 학과별 포인트를 비교하며 함께 친환경 목표를 달성하세요.</p></div>
-        <div class="activity"><div class="icon">🎁</div><h3>실속 있는 보상</h3><p>적립한 포인트를 제휴 매장 할인과 다양한 혜택으로 사용하세요.</p></div>
+    <section id="career" class="section career">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-label">02 / EXPERIENCE</p>
+          <h2>경험과 <em>성장</em></h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="year">2025 — NOW</span>
+            <div><h3>Freelance Creative Developer</h3><p>브랜드 웹사이트와 인터랙티브 프로덕트를 설계·개발. 사용자 경험을 중심으로 반응형 웹과 모션을 제작.</p></div>
+          </article>
+          <article class="timeline-item reveal">
+            <span class="year">2024 — 2025</span>
+            <div><h3>Digital Studio · Frontend Developer</h3><p>기업 및 스타트업 프로젝트의 웹 프론트엔드 개발, 디자인 시스템 구축, 웹 성능 최적화 담당.</p></div>
+          </article>
+          <article class="timeline-item reveal">
+            <span class="year">2022 — 2024</span>
+            <div><h3>University · Digital Media</h3><p>웹 기술과 UX/UI 디자인을 공부하며 다양한 팀 프로젝트와 개인 프로젝트 진행.</p></div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="activity">
-      <div class="title"><h2>오늘의 친환경 활동</h2><p>작은 행동 하나도 포인트가 됩니다.</p></div>
-      <div class="grid">
-        <div class="activity"><div class="icon">🥤</div><h3>텀블러 사용</h3><p>카페에서 다회용 컵을 사용했어요.</p><br><strong>+100 P</strong></div>
-        <div class="activity"><div class="icon">🚌</div><h3>대중교통 이용</h3><p>학교까지 대중교통으로 이동했어요.</p><br><strong>+80 P</strong></div>
-        <div class="activity"><div class="icon">🚲</div><h3>자전거 이용</h3><p>가까운 거리는 자전거로 이동했어요.</p><br><strong>+120 P</strong></div>
+    <section id="work" class="section work">
+      <div class="container">
+        <div class="work-head reveal">
+          <div><p class="section-label">03 / SELECTED WORK</p><h2>최근 작업물</h2></div>
+          <p>아이디어를 실제 사용자 경험으로<br />변환한 프로젝트입니다.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card featured reveal">
+            <div class="project-art art-green"><span>01</span><div class="mock-window"><b>GREEN CAMPUS</b><i>♻</i><strong>12,480 P</strong></div></div>
+            <div class="project-info"><div><span>WEB APP · 2026</span><h3>Green Campus</h3></div><p>친환경 활동을 포인트와 리워드로 연결한 대학생 대상 플랫폼.</p><a href="#contact">VIEW PROJECT ↗</a></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-purple"><span>02</span><div class="mock-lines"><i></i><i></i><i></i><i></i></div></div>
+            <div class="project-info"><div><span>BRAND WEBSITE · 2025</span><h3>Mono Architecture</h3></div><p>건축 스튜디오의 철학을 몰입감 있는 인터랙션으로 표현한 웹사이트.</p><a href="#contact">VIEW PROJECT ↗</a></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-orange"><span>03</span><div class="mock-phone"><b>FIT LOG</b><small>Today's Progress</small><strong>82%</strong></div></div>
+            <div class="project-info"><div><span>MOBILE WEB · 2025</span><h3>Fit Log</h3></div><p>운동 기록과 데이터 시각화를 결합한 개인 피트니스 서비스.</p><a href="#contact">VIEW PROJECT ↗</a></div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="reward">
-      <div class="title"><h2>포인트로 받을 수 있는 혜택</h2><p>학교 주변에서 바로 사용할 수 있어요.</p></div>
-      <div class="card">
-        <div class="reward"><span>☕ 제휴 카페 10% 할인</span><strong>500 P</strong></div>
-        <div class="reward"><span>🏋️ 헬스장 1일 이용권 할인</span><strong>1,000 P</strong></div>
-        <div class="reward"><span>🎓 캠퍼스 이벤트 참여권</span><strong>300 P</strong></div>
+    <section class="marquee"><div>DESIGN • DEVELOP • CREATE • ITERATE • DESIGN • DEVELOP • CREATE • ITERATE •</div></section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-box reveal">
+        <div>
+          <p class="section-label">04 / CONTACT</p>
+          <h2>좋은 아이디어가<br /><em>있나요?</em></h2>
+          <p class="contact-copy">새로운 프로젝트, 협업, 혹은 가벼운 이야기까지 편하게 연락 주세요.</p>
+        </div>
+        <div class="contact-right">
+          <a class="email" href="mailto:dohyun@example.com">dohyun@example.com <span>↗</span></a>
+          <div class="socials"><a href="#">GITHUB</a><a href="#">LINKEDIN</a><a href="#">INSTAGRAM</a></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>🌱 ECO CAMPUS · 함께 만드는 지속가능한 캠퍼스</footer>
+  <footer><div class="container"><span>© 2026 DOHYUN</span><span>BUILT WITH HTML · CSS · JAVASCRIPT</span></div></footer>
+  <script src="script.js"></script>
 </body>
 </html>
