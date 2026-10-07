@@ -1,11 +1,7 @@
-const menuBtn=document.querySelector('.menu-btn');const navLinks=document.querySelector('.nav-links');menuBtn?.addEventListener('click',()=>navLinks.classList.toggle('open'));document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-const canvas=document.querySelector('#particles'),ctx=canvas.getContext('2d');let particles=[];
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight}resize();addEventListener('resize',resize);
-for(let i=0;i<55;i++)particles.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25});
-function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='rgba(184,255,61,.28)';particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()});requestAnimationFrame(draw)}draw();
-
-const glow=document.querySelector('.cursor-glow');addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const menu=$('.menu-btn'), nav=$('.nav-links'); menu?.addEventListener('click',()=>nav.classList.toggle('open')); $$('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}); $$('.reveal').forEach(e=>io.observe(e));
+$$('[data-count]').forEach(el=>{const target=+el.dataset.count;let n=0;const step=Math.ceil(target/55);const run=()=>{n=Math.min(n+step,target);el.textContent=n.toLocaleString();if(n<target)requestAnimationFrame(run)};io.observe(el);const ob=new IntersectionObserver(es=>{if(es[0].isIntersecting){run();ob.disconnect()}},{threshold:.5});ob.observe(el)});
+$$('.check').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.activity-card');if(btn.classList.contains('done'))return;btn.classList.add('done');btn.innerHTML='✓ 인증 완료';card.style.borderColor='#baff3c66';const points=card.dataset.points;const toast=document.createElement('div');toast.textContent='+'+Number(points).toLocaleString()+'P 적립 완료! 🌱';Object.assign(toast.style,{position:'fixed',left:'50%',bottom:'35px',transform:'translateX(-50%)',background:'#baff3c',color:'#071007',padding:'13px 18px',borderRadius:'30px',font:'11px "DM Mono"',zIndex:100});document.body.appendChild(toast);setTimeout(()=>toast.remove(),1800)}));
+const glow=$('.cursor-glow');addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+const canvas=$('#particles'),ctx=canvas.getContext('2d');let ps=[];function resize(){canvas.width=innerWidth;canvas.height=innerHeight}resize();addEventListener('resize',resize);for(let i=0;i<48;i++)ps.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22});function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='rgba(186,255,60,.22)';ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill()});requestAnimationFrame(draw)}draw();
