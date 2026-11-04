@@ -7,7 +7,7 @@ const glow=$('.cursor-glow');addEventListener('pointermove',e=>{glow.style.left=
 const canvas=$('#particles'),ctx=canvas.getContext('2d');let ps=[];function resize(){canvas.width=innerWidth;canvas.height=innerHeight}resize();addEventListener('resize',resize);for(let i=0;i<48;i++)ps.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22});function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='rgba(186,255,60,.22)';ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill()});requestAnimationFrame(draw)}draw();
 
 /* One-line campus comments - Google Apps Script */
-const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbz5zH0IAxiQN_dJzRrzLAnHOblrMywmEvO6kQi0sBQl5eCcbR0-DtPAM-NpJwfQL-yD/exec';
+const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbwqvs3hXg5vagZjt_6eCMBWRZxs3r_N9G6cbyFoaY9RbiUCaZDY6Qe41bC6rTj1Xc2g/exec';
 const commentForm = $('#comment-form');
 const commentInput = $('#comment-input');
 const commentList = $('#comment-list');
