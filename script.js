@@ -116,26 +116,37 @@ commentForm?.addEventListener('submit', event => {
   transport.acceptCharset = 'UTF-8';
   transport.hidden = true;
 
-  const payload = document.createElement('input');
-  payload.type = 'hidden';
-  payload.name = 'payload';
-  payload.value = JSON.stringify({
-    content,
-    page: window.location.pathname
+  const page = window.location.pathname;
+  // payload 방식과 개별 필드 방식을 함께 보내 구버전 doPost와도 호환되도록 함
+  [
+    ['payload', JSON.stringify({ content, page })],
+    ['content', content],
+    ['message', content],
+    ['page', page]
+  ].forEach(([name, value]) => {
+    const field = document.createElement('input');
+    field.type = 'hidden';
+    field.name = name;
+    field.value = value;
+    transport.append(field);
   });
-  transport.append(payload);
+
   document.body.append(transport);
   transport.submit();
   transport.remove();
 
-  commentInput.value = '';
-  commentStatus.textContent = '등록 요청을 보냈습니다. 저장 여부를 확인하고 있어요.';
-  setTimeout(() => {
+  commentStatus.textContent = '저장 여부를 확인하고 있습니다. 잠시만 기다려주세요.';
+  let checks = 0;
+  const verifyTimer = setInterval(() => {
+    checks += 1;
     loadComments();
-    submit.disabled = false;
-    submit.innerHTML = '등록하기 <span>→</span>';
-    commentStatus.textContent = '댓글 목록을 새로고침했습니다. 목록에 댓글이 보이면 등록 완료입니다.';
-  }, 2200);
+    if (checks >= 4) {
+      clearInterval(verifyTimer);
+      submit.disabled = false;
+      submit.innerHTML = '등록하기 <span>→</span>';
+      commentStatus.textContent = '목록에서 댓글이 확인되지 않으면 Apps Script의 doPost 코드와 최신 배포 버전을 확인해주세요. 입력한 내용은 다시 시도할 수 있도록 유지했습니다.';
+    }
+  }, 1800);
 });
 
 loadComments();
