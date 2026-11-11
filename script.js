@@ -41,66 +41,101 @@ function renderComments(items) {
 
 function loadComments() {
   const callback = 'gcComments_' + Date.now();
+  let finished = false;
+  const script = document.createElement('script');
+  const timeout = setTimeout(() => {
+    if (finished) return;
+    finished = true;
+    delete window[callback];
+    script.remove();
+    commentCount.textContent = '연결 확인 필요';
+    commentList.innerHTML = '<li class="comment-empty">댓글을 불러오지 못했어요. 서버 배포와 권한을 확인해주세요.</li>';
+  }, 12000);
+
   window[callback] = data => {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timeout);
     if (data && data.success) {
       renderComments(Array.isArray(data.comments) ? data.comments : []);
     } else {
       commentCount.textContent = '불러오기 실패';
-      commentList.replaceChildren();
-      const error = document.createElement('li');
-      error.className = 'comment-empty';
-      error.textContent = '댓글을 불러오지 못했어요. 서버 설정을 확인해주세요.';
-      commentList.append(error);
+      commentList.innerHTML = '<li class="comment-empty">댓글 목록을 불러오지 못했어요.</li>';
     }
     delete window[callback];
     script.remove();
   };
-  const script = document.createElement('script');
+
   script.src = GAS_API_URL + '?action=list&limit=50&callback=' + callback;
   script.onerror = () => {
-    commentCount.textContent = '연결 확인 필요';
-    commentList.replaceChildren();
-    const error = document.createElement('li');
-    error.className = 'comment-empty';
-    error.textContent = '댓글 서버에 연결할 수 없어요. Apps Script의 JSONP 조회 설정을 확인해주세요.';
-    commentList.append(error);
+    if (finished) return;
+    finished = true;
+    clearTimeout(timeout);
     delete window[callback];
     script.remove();
+    commentCount.textContent = '연결 확인 필요';
+    commentList.innerHTML = '<li class="comment-empty">댓글 서버에 연결할 수 없어요. Apps Script 배포 주소와 권한을 확인해주세요.</li>';
   };
   document.head.append(script);
 }
 
-commentForm?.addEventListener('submit', async event => {
+// Apps Script로 폼 방식 전송: CORS 프리플라이트 없이 doPost의 e.parameter로 전달
+commentForm?.addEventListener('submit', event => {
   event.preventDefault();
   const content = commentInput.value.trim();
-  if (!content || content.length > 120) return;
 
-  const submit = commentForm.querySelector('button');
+  if (!content) {
+    commentStatus.textContent = '댓글 내용을 입력해주세요.';
+    commentInput.focus();
+    return;
+  }
+  if (content.length > 120) {
+    commentStatus.textContent = '댓글은 120자 이내로 작성해주세요.';
+    return;
+  }
+
+  const submit = commentForm.querySelector('button[type="submit"]');
   submit.disabled = true;
   submit.textContent = '등록 중...';
-  commentStatus.textContent = '';
+  commentStatus.textContent = '댓글을 서버로 전송하고 있습니다.';
 
-  try {
-    // Apps Script POST is sent as text/plain to avoid a CORS preflight.
-    // no-cors responses are opaque, so the list is refreshed to confirm persistence.
-    await fetch(GAS_API_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({
-        content,
-        page: window.location.pathname
-      })
-    });
-    commentInput.value = '';
-    commentStatus.textContent = '등록 요청을 보냈어요. 저장 여부를 확인하고 있습니다.';
-    setTimeout(loadComments, 1800);
-  } catch (error) {
-    commentStatus.textContent = '전송에 실패했어요. 네트워크를 확인한 뒤 다시 시도해주세요.';
-  } finally {
+  const frameName = 'gcCommentFrame';
+  let frame = document.getElementById(frameName);
+  if (!frame) {
+    frame = document.createElement('iframe');
+    frame.name = frameName;
+    frame.id = frameName;
+    frame.hidden = true;
+    document.body.append(frame);
+  }
+
+  const transport = document.createElement('form');
+  transport.method = 'POST';
+  transport.action = GAS_API_URL;
+  transport.target = frameName;
+  transport.acceptCharset = 'UTF-8';
+  transport.hidden = true;
+
+  const payload = document.createElement('input');
+  payload.type = 'hidden';
+  payload.name = 'payload';
+  payload.value = JSON.stringify({
+    content,
+    page: window.location.pathname
+  });
+  transport.append(payload);
+  document.body.append(transport);
+  transport.submit();
+  transport.remove();
+
+  commentInput.value = '';
+  commentStatus.textContent = '등록 요청을 보냈습니다. 저장 여부를 확인하고 있어요.';
+  setTimeout(() => {
+    loadComments();
     submit.disabled = false;
     submit.innerHTML = '등록하기 <span>→</span>';
-  }
+    commentStatus.textContent = '댓글 목록을 새로고침했습니다. 목록에 댓글이 보이면 등록 완료입니다.';
+  }, 2200);
 });
 
 loadComments();
